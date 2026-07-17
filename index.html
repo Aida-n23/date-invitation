@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💌</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ffd6e7,#ffeef6);
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 10px 35px rgba(0,0,0,.15);
+position:relative;
+width:90%;
+max-width:500px;
+}
+
+h1{
+font-size:34px;
+margin-bottom:15px;
+}
+
+p{
+font-size:22px;
+margin-bottom:35px;
+}
+
+.buttons{
+position:relative;
+height:90px;
+}
+
+button{
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:15px;
+cursor:pointer;
+transition:.2s;
+}
+
+#yes{
+background:#ff4f87;
+color:white;
+}
+
+#yes:hover{
+transform:scale(1.08);
+}
+
+#no{
+background:#ddd;
+position:absolute;
+left:250px;
+top:0;
+}
+
+#result{
+display:none;
+font-size:28px;
+color:#ff2f75;
+margin-top:20px;
+font-weight:bold;
+}
+
+.heart{
+position:fixed;
+font-size:24px;
+animation:fall 4s linear forwards;
+pointer-events:none;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-50px);
+opacity:1;
+}
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>💌</h1>
+
+<p>Пойдешь со мной на свидание?</p>
+
+<div class="buttons">
+<button id="yes">Да ❤️</button>
+<button id="no">Нет 🙈</button>
+</div>
+
+<div id="result">
+Урааа! ❤️<br><br>
+Я знал(а), что ты согласишься 🥹
+</div>
+
+</div>
+
+<script>
+
+const no=document.getElementById("no");
+
+no.addEventListener("mouseover",move);
+
+no.addEventListener("click",move);
+
+function move(){
+
+const x=Math.random()*(window.innerWidth-150);
+
+const y=Math.random()*(window.innerHeight-70);
+
+no.style.position="fixed";
+no.style.left=x+"px";
+no.style.top=y+"px";
+
+}
+
+document.getElementById("yes").onclick=function(){
+
+document.querySelector(".buttons").style.display="none";
+
+document.getElementById("result").style.display="block";
+
+for(let i=0;i<120;i++){
+
+setTimeout(()=>{
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML=Math.random()>0.5?"❤️":"💖";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.fontSize=(20+Math.random()*30)+"px";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),4000);
+
+},i*50);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
