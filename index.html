@@ -3,102 +3,179 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>💌</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
+
 height:100vh;
-overflow:hidden;
+
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(135deg,#ffd6e7,#ffeef6);
+
+overflow:hidden;
+
+background:linear-gradient(-45deg,
+#ffd6e8,
+#ffe8f2,
+#f7d7ff,
+#ffd1dc);
+
+background-size:400% 400%;
+
+animation:bg 12s ease infinite;
+
+}
+
+@keyframes bg{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
 }
 
 .card{
-background:white;
-padding:40px;
-border-radius:25px;
-text-align:center;
-box-shadow:0 10px 35px rgba(0,0,0,.15);
-position:relative;
+
 width:90%;
-max-width:500px;
+max-width:520px;
+
+padding:45px;
+
+border-radius:28px;
+
+background:rgba(255,255,255,.35);
+
+backdrop-filter:blur(18px);
+
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+text-align:center;
+
+animation:show .8s ease;
+
+}
+
+@keyframes show{
+
+from{
+
+opacity:0;
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
 }
 
 h1{
-font-size:34px;
+
+font-size:55px;
 margin-bottom:15px;
+
+}
+
+h2{
+
+font-size:32px;
+
+color:#ff3f7d;
+
+margin-bottom:18px;
+
 }
 
 p{
-font-size:22px;
-margin-bottom:35px;
-}
 
-.buttons{
-position:relative;
-height:90px;
+font-size:20px;
+
+color:#555;
+
+line-height:1.7;
+
+margin-bottom:35px;
+
 }
 
 button{
-padding:15px 35px;
-font-size:20px;
+
+padding:16px 45px;
+
 border:none;
-border-radius:15px;
-cursor:pointer;
-transition:.2s;
-}
 
-#yes{
-background:#ff4f87;
+border-radius:50px;
+
+font-size:19px;
+
+background:#ff4f8d;
+
 color:white;
+
+cursor:pointer;
+
+transition:.3s;
+
+box-shadow:0 8px 20px rgba(255,79,141,.35);
+
 }
 
-#yes:hover{
+button:hover{
+
 transform:scale(1.08);
-}
 
-#no{
-background:#ddd;
-position:absolute;
-left:250px;
-top:0;
-}
-
-#result{
-display:none;
-font-size:28px;
-color:#ff2f75;
-margin-top:20px;
-font-weight:bold;
 }
 
 .heart{
+
 position:fixed;
-font-size:24px;
-animation:fall 4s linear forwards;
-pointer-events:none;
+
+font-size:25px;
+
+animation:float 8s linear infinite;
+
+opacity:.35;
+
 }
 
-@keyframes fall{
-0%{
-transform:translateY(-50px);
-opacity:1;
-}
-100%{
+@keyframes float{
+
+from{
+
 transform:translateY(110vh);
-opacity:0;
+
 }
+
+to{
+
+transform:translateY(-120px);
+
 }
+
+}
+
 </style>
+
 </head>
 
 <body>
@@ -107,67 +184,48 @@ opacity:0;
 
 <h1>💌</h1>
 
-<p>Пойдешь со мной на свидание?</p>
+<h2>Привет 😊</h2>
 
-<div class="buttons">
-<button id="yes">Да ❤️</button>
-<button id="no">Нет 🙈</button>
-</div>
+<p>
 
-<div id="result">
-Урааа! ❤️<br><br>
-Я знал(а), что ты согласишься 🥹
-</div>
+У меня есть кое-что,
+что я давно хочу тебе показать...
+
+</p>
+
+<button onclick="next()">
+
+Начать ✨
+
+</button>
 
 </div>
 
 <script>
 
-const no=document.getElementById("no");
+function next(){
 
-no.addEventListener("mouseover",move);
-
-no.addEventListener("click",move);
-
-function move(){
-
-const x=Math.random()*(window.innerWidth-150);
-
-const y=Math.random()*(window.innerHeight-70);
-
-no.style.position="fixed";
-no.style.left=x+"px";
-no.style.top=y+"px";
+alert("Следующий экран мы сделаем на следующем этапе 😎");
 
 }
 
-document.getElementById("yes").onclick=function(){
-
-document.querySelector(".buttons").style.display="none";
-
-document.getElementById("result").style.display="block";
-
-for(let i=0;i<120;i++){
-
-setTimeout(()=>{
+for(let i=0;i<25;i++){
 
 let h=document.createElement("div");
 
 h.className="heart";
 
-h.innerHTML=Math.random()>0.5?"❤️":"💖";
+h.innerHTML=Math.random()>0.5?"💖":"❤️";
 
 h.style.left=Math.random()*100+"vw";
 
-h.style.fontSize=(20+Math.random()*30)+"px";
+h.style.animationDuration=(5+Math.random()*6)+"s";
+
+h.style.fontSize=(20+Math.random()*25)+"px";
+
+h.style.animationDelay=Math.random()*8+"s";
 
 document.body.appendChild(h);
-
-setTimeout(()=>h.remove(),4000);
-
-},i*50);
-
-}
 
 }
 
