@@ -1,235 +1,40 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💌 Приглашение</title>
 
-<title>💌</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-
-height:100vh;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-overflow:hidden;
-
-background:linear-gradient(-45deg,
-#ffd6e8,
-#ffe8f2,
-#f7d7ff,
-#ffd1dc);
-
-background-size:400% 400%;
-
-animation:bg 12s ease infinite;
-
-}
-
-@keyframes bg{
-
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-
-}
-
-.card{
-
-width:90%;
-max-width:520px;
-
-padding:45px;
-
-border-radius:28px;
-
-background:rgba(255,255,255,.35);
-
-backdrop-filter:blur(18px);
-
-box-shadow:0 15px 40px rgba(0,0,0,.15);
-
-text-align:center;
-
-animation:show .8s ease;
-
-}
-
-@keyframes show{
-
-from{
-
-opacity:0;
-transform:translateY(30px);
-
-}
-
-to{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-}
-
-h1{
-
-font-size:55px;
-margin-bottom:15px;
-
-}
-
-h2{
-
-font-size:32px;
-
-color:#ff3f7d;
-
-margin-bottom:18px;
-
-}
-
-p{
-
-font-size:20px;
-
-color:#555;
-
-line-height:1.7;
-
-margin-bottom:35px;
-
-}
-
-button{
-
-padding:16px 45px;
-
-border:none;
-
-border-radius:50px;
-
-font-size:19px;
-
-background:#ff4f8d;
-
-color:white;
-
-cursor:pointer;
-
-transition:.3s;
-
-box-shadow:0 8px 20px rgba(255,79,141,.35);
-
-}
-
-button:hover{
-
-transform:scale(1.08);
-
-}
-
-.heart{
-
-position:fixed;
-
-font-size:25px;
-
-animation:float 8s linear infinite;
-
-opacity:.35;
-
-}
-
-@keyframes float{
-
-from{
-
-transform:translateY(110vh);
-
-}
-
-to{
-
-transform:translateY(-120px);
-
-}
-
-}
-
-</style>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="card">
+<div class="hearts"></div>
 
-<h1>💌</h1>
+<div class="card" id="card">
 
-<h2>Привет 😊</h2>
+    <div class="emoji">💌</div>
 
-<p>
+    <h1 id="title">Привет 😊</h1>
 
-У меня есть кое-что,
-что я давно хочу тебе показать...
+    <p id="text">
+        У меня есть кое-что,
+        что я давно хочу тебе показать...
+    </p>
 
-</p>
-
-<button onclick="next()">
-
-Начать ✨
-
-</button>
+    <button id="nextBtn">
+        Начать ✨
+    </button>
 
 </div>
 
-<script>
-
-function next(){
-
-alert("Следующий экран мы сделаем на следующем этапе 😎");
-
-}
-
-for(let i=0;i<25;i++){
-
-let h=document.createElement("div");
-
-h.className="heart";
-
-h.innerHTML=Math.random()>0.5?"💖":"❤️";
-
-h.style.left=Math.random()*100+"vw";
-
-h.style.animationDuration=(5+Math.random()*6)+"s";
-
-h.style.fontSize=(20+Math.random()*25)+"px";
-
-h.style.animationDelay=Math.random()*8+"s";
-
-document.body.appendChild(h);
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
