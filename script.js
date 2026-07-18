@@ -1,81 +1,29 @@
-const title = document.getElementById("title");
-const text = document.getElementById("text");
-const button = document.getElementById("nextBtn");
-
-const pages = [
-{
-title:"😊 Привет!",
-text:"У меня есть кое-что, что я давно хочу тебе показать...",
-button:"Далее ❤️"
-},
-{
-title:"🤫 Маленький секрет",
-text:"Я уже несколько дней думаю, как лучше это сказать...",
-button:"Продолжить ✨"
-},
-{
-title:"🥺 Честно...",
-text:"Я немного волнуюсь. Надеюсь, ты дочитаешь до конца.",
-button:"Я слушаю 💖"
-},
-{
-title:"💌",
-text:"Есть один очень важный вопрос...",
-button:"Задать вопрос"
-},
-{
-title:"❤️",
-text:"Пойдешь со мной на свидание?",
-button:"Конечно!"
-}
+const t=document.getElementById('title');
+const p=document.getElementById('text');
+const yes=document.getElementById('yes');
+const no=document.getElementById('no');
+let stage=0;
+const steps=[
+['😊 Можно вопрос?','Обещай дочитать до конца...','Далее ❤️'],
+['🥹','Пойдешь со мной на свидание?','Да ❤️']
 ];
-
-let step = 0;
-
-button.onclick = () => {
-
-step++;
-
-if(step < pages.length){
-
-title.classList.remove("fade");
-text.classList.remove("fade");
-
-void title.offsetWidth;
-
-title.classList.add("fade");
-text.classList.add("fade");
-
-title.innerHTML = pages[step].title;
-text.innerHTML = pages[step].text;
-button.innerHTML = pages[step].button;
-
-}else{
-
-window.location.href="question.html";
-
+yes.onclick=()=>{
+ if(stage<steps.length){
+  t.textContent=steps[stage][0];
+  p.textContent=steps[stage][1];
+  yes.textContent=steps[stage][2];
+  stage++;
+  if(stage===steps.length){no.style.display='inline-block';}
+ }else{
+  document.body.innerHTML='<div style="display:flex;justify-content:center;align-items:center;height:100vh;font-family:Arial;background:linear-gradient(135deg,#ffd6e7,#f7dcff)"><div style="text-align:center"><h1>❤️ Ура! ❤️</h1><p>Теперь осталось выбрать дату 😊</p></div></div>';
+ }
+};
+const texts=['Нет 🙈','Точно нет? 🥺','Подумай ❤️','Ну пожалуйста 🥹','😂'];
+let i=0;
+function move(){
+ if(i<texts.length-1)i++;
+ no.textContent=texts[i];
+ no.style.left=Math.random()*(window.innerWidth-120)+'px';
+ no.style.top=Math.random()*(window.innerHeight-60)+'px';
 }
-
-}
-
-const hearts=document.querySelector(".hearts");
-
-for(let i=0;i<30;i++){
-
-const h=document.createElement("div");
-
-h.className="heart";
-
-h.innerHTML=Math.random()>0.5?"💖":"❤️";
-
-h.style.left=Math.random()*100+"vw";
-
-h.style.fontSize=(18+Math.random()*30)+"px";
-
-h.style.animationDuration=(6+Math.random()*6)+"s";
-
-h.style.animationDelay=Math.random()*6+"s";
-
-hearts.appendChild(h);
-
-}
+no.onmouseover=move; no.onclick=move;
