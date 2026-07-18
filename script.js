@@ -1,4 +1,4 @@
-[13:36, 7/18/2026] Aida: const title = document.getElementById("title");
+const title = document.getElementById("title");
 const text = document.getElementById("text");
 const button = document.getElementById("nextBtn");
 
@@ -7,48 +7,6 @@ const pages = [
 title:"😊 Привет!",
 text:"У меня есть кое-что, что я давно хочу тебе показать...",
 button:"Далее ❤️"
-},
-{
-title:"🤫 Маленький секрет",
-text:"Я уже несколько дней думаю, как лучше это сказать...",
-button:"Продолжить ✨"
-},
-{
-title:"🥺 Честно...",
-text:"Я немного волнуюсь. Надеюсь, ты дочитаешь до конца.",
-button:"Я слушаю 💖"
-},
-{
-title:"💌",
-text:"Есть один очень важный вопрос...",
-button:"Задать вопрос"
-},
-{
-title:"❤️",
-text:"Пойдешь со мной на свидание?",
-button:"Конечно!"
-}
-];
-
-let step = 0;
-
-button.onclick = () => {
-
-step++;
-
-if(step < pages.length){
-
-title.classList.remove("fade");
-text.classL…
-[13:39, 7/18/2026] Aida: const title = document.getElementById("title");
-const text = document.getElementById("text");
-const button = document.getElementById("nextBtn");
-
-const pages = [
-{
-title:"Привет!",
-text:"У меня есть кое-что, что я давно хочу тебе показать...",
-button:"Что же? ❤️"
 },
 {
 title:"🤫 Маленький секрет",
