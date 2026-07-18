@@ -1,38 +1,53 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💌 Приглашение</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<title>💌 Приглашение</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<div class="hearts"></div>
+<div class="background-hearts" id="hearts"></div>
 
-<div class="card" id="card">
+<div class="card">
 
-    <div class="emoji">💌</div>
+<div class="emoji" id="emoji">💌</div>
 
-    <h1 id="title">Привет 😊</h1>
+<h1 id="title">
+Привет 😊
+</h1>
 
-    <p id="text">
-        У меня есть кое-что,
-        что я давно хочу тебе показать...
-    </p>
+<p id="text">
+У меня есть кое-что,
+что я давно хочу тебе показать...
+</p>
 
-    <button id="nextBtn">
-        Начать ✨
-    </button>
+<div class="buttons">
+
+<button id="mainBtn">
+Начать ✨
+</button>
+
+<button id="noBtn" style="display:none;">
+Нет 🙈
+</button>
 
 </div>
+
+</div>
+
+<canvas id="confetti"></canvas>
 
 <script src="script.js"></script>
 
