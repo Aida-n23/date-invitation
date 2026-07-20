@@ -11,7 +11,7 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(-45deg,#ffd6e8,#ffe8f2,#f6d7ff,#ffd3e1);
+    background:linear-gradient(-45deg,#ffd6e8,#ffe8f2,#f7d7ff,#ffd1dc);
     background-size:400% 400%;
     animation:bgMove 12s ease infinite;
 }
@@ -22,16 +22,26 @@ body{
     100%{background-position:0% 50%;}
 }
 
+.background-hearts{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
 .card{
     width:90%;
     max-width:520px;
     padding:45px;
     border-radius:30px;
     background:rgba(255,255,255,.35);
-    backdrop-filter:blur(18px);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
     box-shadow:0 20px 45px rgba(0,0,0,.12);
     text-align:center;
     animation:show .7s ease;
+    position:relative;
+    z-index:10;
 }
 
 @keyframes show{
@@ -46,79 +56,157 @@ body{
 }
 
 .emoji{
-    font-size:60px;
+    font-size:65px;
     margin-bottom:15px;
 }
 
 h1{
-    color:#ff3b82;
-    font-size:40px;
-    margin-bottom:15px;
+    font-size:38px;
+    color:#ff3d84;
+    margin-bottom:18px;
 }
 
 p{
+    font-size:21px;
     color:#555;
-    font-size:22px;
     line-height:1.7;
     margin-bottom:35px;
 }
-
-button{
-    border:none;
-    outline:none;
-    cursor:pointer;
-    padding:18px 50px;
-    border-radius:50px;
-    background:#ff4b8b;
-    color:white;
-    font-size:20px;
-    font-weight:600;
-    transition:.3s;
-    box-shadow:0 12px 25px rgba(255,75,139,.35);
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-button:hover{
-    transform:scale(1.06);
+body{
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(-45deg,#ffd6e8,#ffe8f2,#f7d7ff,#ffd1dc);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
 }
 
-button:active{
-    transform:scale(.96);
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
 }
 
-.hearts{
+.background-hearts{
     position:fixed;
     inset:0;
     overflow:hidden;
     pointer-events:none;
 }
 
-.heart{
-    position:absolute;
-    bottom:-60px;
-    opacity:.4;
-    animation:float linear infinite;
+.card{
+    width:90%;
+    max-width:520px;
+    padding:45px;
+    border-radius:30px;
+    background:rgba(255,255,255,.35);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    box-shadow:0 20px 45px rgba(0,0,0,.12);
+    text-align:center;
+    animation:show .7s ease;
+    position:relative;
+    z-index:10;
 }
 
-@keyframes float{
-    from{
-        transform:translateY(0);
-    }
-    to{
-        transform:translateY(-120vh);
-    }
-}
-
-.fade{
-    animation:fade .5s ease;
-}
-
-@keyframes fade{
+@keyframes show{
     from{
         opacity:0;
-        transform:translateY(20px);
+        transform:translateY(40px) scale(.95);
     }
     to{
         opacity:1;
-        transform:translateY(0);
+        transform:translateY(0) scale(1);
     }
+}
+
+.emoji{
+    font-size:65px;
+    margin-bottom:15px;
+}
+
+h1{
+    font-size:38px;
+    color:#ff3d84;
+    margin-bottom:18px;
+}
+
+p{
+    font-size:21px;
+    color:#555;
+    line-height:1.7;
+    margin-bottom:35px;
+}/* Красивое свечение карточки */
+.card::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius:32px;
+    background:linear-gradient(135deg,#ffffff66,#ffd3e5,#ffffff66);
+    z-index:-1;
+    filter:blur(10px);
+    opacity:.7;
+}
+
+/* Плавное увеличение кнопки */
+button:active{
+    transform:scale(.96);
+}
+
+/* Плавная смена текста */
+#title,
+#text{
+    transition:.4s;
+}
+
+/* Скрытие */
+.hidden{
+    opacity:0;
+    transform:translateY(20px);
+}
+
+/* Появление */
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* Красивое пульсирование главной кнопки */
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.05);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+#mainBtn{
+
+animation:pulse 2s infinite;
+
+}
+
+/* Небольшое свечение эмодзи */
+
+.emoji{
+
+filter:drop-shadow(0 0 10px rgba(255,90,140,.35));
+
 }
