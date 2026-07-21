@@ -3,46 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💌 Приглашение</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <title>Для тебя ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="background-hearts" id="hearts"></div>
+<div class="hearts"></div>
 
-<div class="card">
+<section class="page active" id="page1">
+    <h1>Привет ❤️</h1>
+    <p>У меня есть кое-что важное для тебя...</p>
+    <button onclick="nextPage()">Дальше ➜</button>
+</section>
 
-    <div class="emoji" id="emoji">💌</div>
+<section class="page" id="page2">
+    <h1>Я хотел сказать...</h1>
+    <p class="typing">
+        Ты стала человеком, о котором я думаю каждый день.
+        С тобой хочется смеяться, гулять и проводить время.
+        ❤️
+    </p>
+    <button onclick="nextPage()">Еще ➜</button>
+</section>
 
-    <h1 id="title">
-        Привет 😊
-    </h1>
+<section class="page" id="page3">
+    <h1>И самое главное...</h1>
 
-    <p id="text">
-        У меня есть кое-что, что я давно хочу тебе показать...
+    <p class="question">
+        💖 Хочешь сходить со мной на свидание? 💖
     </p>
 
     <div class="buttons">
-
-        <button id="mainBtn">
-            Начать ✨
-        </button>
-
-        <button id="noBtn" style="display:none;">
-            Нет 🙈
-        </button>
-
+        <button class="yes" onclick="yesAnswer()">Да ❤️</button>
+        <button class="no" id="noBtn">Нет 😅</button>
     </div>
+</section>
 
+<div id="success">
+    <h1>🥹❤️ Ура!!! ❤️🥹</h1>
+    <p>Ты сделала меня самым счастливым человеком!</p>
+    <div class="big-heart">💖</div>
 </div>
-
-<canvas id="confetti"></canvas>
 
 <script src="script.js"></script>
 
